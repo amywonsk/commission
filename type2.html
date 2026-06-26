@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>:3</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="wrap">
+
+
+    <div class="box-shortcut">
+      <ul>
+        <li><a href="index.html#main">⭠main</a></li>
+         <li><a href="#personal work">⊹ personal work</a></li>
+          <li><a href="#commission work">⊹ commission work</a></li>
+        <li><a href="type1.html">type1</a></li>
+      </ul>
+    </div>
+
+
+    <div class="images">
+      <a href="#personal work">
+        <h2 style="text-align: center;" id="personal work">✦ personal work</h2>
+      </a>
+      <p style="text-align: center;">
+        <span style="color: rgb(189, 189, 189);">requested included
+          <br>⊹ i really dont have much sample of this type of work! im trying to make more samples of this type, until then, im uploading some old artwoks.
+        </span>
+      </p>
+      <img class="img" src="2.jpg" alt="" loading="lazy" onclick="openModal(this)">
+      <img class="img" src="2/1.jpg" alt="" loading="lazy" onclick="openModal(this)">
+      <img class="img" src="2/2.jpg" alt="" loading="lazy" onclick="openModal(this)">
+      <img class="img" src="2/3.jpg" alt="" loading="lazy" onclick="openModal(this)">
+      <img class="img" src="2/4.jpg" alt="" loading="lazy" onclick="openModal(this)">
+      <img class="img" src="2/5.jpg" alt="" loading="lazy" onclick="openModal(this)">
+      <img class="img" src="2/6.jpg" alt="" loading="lazy" onclick="openModal(this)">
+
+    </div>
+
+    <div class="slider" id="slider1">
+      <div class="slides">
+        <img class="img" src="" alt="" loading="lazy" onclick="openModal(this)">
+
+      </div>
+      <button class="prev" onclick="moveSlides(-1, 'slider1')">❮</button>
+      <button class="next" onclick="moveSlides(1, 'slider1')">❯</button>
+    </div>
+    <!-- 모달 구조 -->
+    <div id="myModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImg">
+      <div id="caption"> </div>
+    </div>
+
+    <script src="script.js"></script>
+  </div>
+  </div>
+</body>
+
+</html>
