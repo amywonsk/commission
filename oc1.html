@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>:3</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="wrap">
+
+    <a href="#personal work">
+      <h2 style="text-align: center;" id="personal work">✦ oc</h2>
+    </a>
+    <p style="text-align: center;">
+      <span style="color: rgb(189, 189, 189);">
+        ⊹
+      </span>
+    </p>
+
+    <p>
+      <img class="img" src="oc/1.jpg" alt="" loading="lazy" onclick="openModal(this)">
+    </p>
+    <div class="slider" id="slider1">
+      <div class="slides">
+
+        <img class="img" src="1.jpg"" loading=" lazy" onclick="openModal(this)">
+        <img class="img" src="2/1.jpg"" loading=" lazy" onclick="openModal(this)">
+        <img class="img" src="1/5.jpg"" loading=" lazy" onclick="openModal(this)">
+      </div>
+      <button class="prev" onclick="moveSlides(-1, 'slider1')">❮</button>
+      <button class="next" onclick="moveSlides(1, 'slider1')">❯</button>
+    </div>
+    <!-- 모달 구조 -->
+    <div id="myModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImg">
+      <div id="caption"> </div>
+    </div>
+
+    <script src="script.js"></script>
+  </div>
+  </div>
+</body>
+
+</html>
