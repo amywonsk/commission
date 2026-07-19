@@ -1,19 +1,24 @@
-// 모달 관련 기능
-function openModal(imageElement) {
-    const modal = document.getElementById('myModal');
-    const modalImg = document.getElementById('modalImg');
-    const captionText = document.getElementById('caption');
+/* =========================
+모달
+========================= */
+
+function openModal(image) {
+    const modal = document.getElementById("myModal");
+    const modalImage = document.getElementById("modalImg");
+    const caption = document.getElementById("caption");
+
+    modalImage.src = image.src.replace("_thumbnail", "");
+    caption.textContent = image.alt;
 
     modal.style.display = "block";
-    setTimeout(() => modal.classList.add('show'), 10); // 애니메이션 적용
-    modalImg.src = imageElement.src.replace('_thumbnail', ''); // 원본 이미지 경로로 대체
-    captionText.innerHTML = imageElement.alt; // 이미지 설명을 캡션에 표시
 
-    // 슬라이더 화살표 숨기기
+    setTimeout(() => {
+        modal.classList.add("show");
+    }, 10);
+
     toggleSliderButtons(false);
 
-    // 모달 외부 클릭 시 닫기
-    modal.onclick = function (event) {
+    modal.onclick = event => {
         if (event.target === modal) {
             closeModal();
         }
@@ -21,115 +26,69 @@ function openModal(imageElement) {
 }
 
 function closeModal() {
-    const modal = document.getElementById('myModal');
-    modal.classList.remove('show');
+    const modal = document.getElementById("myModal");
+
+    modal.classList.remove("show");
+
     setTimeout(() => {
         modal.style.display = "none";
-    }, 300); // 애니메이션 시간과 동일하게 설정 (0.3s)
+    }, 300);
 
-    // 슬라이더 화살표 다시 표시
     toggleSliderButtons(true);
 }
 
-// 슬라이더 버튼 표시/숨기기
 function toggleSliderButtons(show) {
-    const display = show ? 'block' : 'none';
-    document.querySelectorAll('.prev, .next').forEach(button => {
-        button.style.display = display;
+    document.querySelectorAll(".prev, .next").forEach(button => {
+        button.style.display = show ? "block" : "none";
     });
 }
 
-// 슬라이더 이동 관련 기능
+/* =========================
+슬라이더
+========================= */
+
 const currentSlides = {};
 
-function moveSlides(n, sliderId) {
-    if (!currentSlides[sliderId]) currentSlides[sliderId] = 0; // 초기화
+function moveSlides(amount, sliderId) {
     const slider = document.getElementById(sliderId);
-    const slides = slider.querySelector('.slides');
-    const totalSlides = slides.children.length;
+    const slides = slider.querySelector(".slides");
+    const slideItems = slides.children;
 
-    // 현재 슬라이드 업데이트
-    currentSlides[sliderId] = (currentSlides[sliderId] + n + totalSlides) % totalSlides;
+    if (slideItems.length === 0) return;
 
-    // 슬라이드 이동
-    const slideWidth = slides.children[0].clientWidth;
-    slides.style.transform = `translateX(${-currentSlides[sliderId] * slideWidth}px)`;
+    if (!(sliderId in currentSlides)) {
+        currentSlides[sliderId] = 0;
+    }
+
+    currentSlides[sliderId] =
+        (currentSlides[sliderId] + amount + slideItems.length) %
+        slideItems.length;
+
+    const slideWidth = slideItems[0].clientWidth;
+
+    slides.style.transform =
+        `translateX(-${currentSlides[sliderId] * slideWidth}px)`;
 }
 
-// jQuery를 활용한 빠른 메뉴 플러그인
-(function ($) {
-    $.fn.quickMenu = function () {
-        return this.each(function () {
-            const $wrap = $(this);
-            const $menu = $wrap.find(".menu");
-            const $btn = $menu.children("li").children("a");
-            const $btnScrollTop = $wrap.find(".btn-scroll-top");
-            const $section = $(".section");
-            const wrapH = $wrap.outerHeight();
-            let nowScroll = 0;
-            let scrolling = true;
-
-            function btnActive(num) {
-                $btn.not($btn.eq(num)).removeClass("on");
-                $btn.eq(num).addClass("on");
-            }
-
-            function moveScroll(num) {
-                if (scrolling) {
-                    scrolling = false;
-                    $("html, body").animate({ scrollTop: num }, function () {
-                        scrolling = true;
-                    });
-                }
-            }
-
-            btnActive(0);
-            $wrap.css({ "margin-top": -(wrapH / 2) });
-
-            $btn.on("click", function (e) {
-                e.preventDefault();
-                const idx = $(this).parent().index();
-                const conT = $section.eq(idx).offset().top;
-                moveScroll(conT);
-            });
-
-            $btnScrollTop.on("click", function (e) {
-                e.preventDefault();
-                moveScroll(0);
-            });
-
-            $(window).scroll(function () {
-                nowScroll = $(this).scrollTop();
-                $section.each(function (idx) {
-                    if (nowScroll >= $(this).offset().top) {
-                        btnActive(idx);
-                    }
-                });
-            });
-        });
-    };
-})(jQuery);
-
-$(function () {
-    $(".box-shortcut").quickMenu();
-});
+/* =========================
+언어 전환
+========================= */
 
 const translations = {
-
     eng: {
         type1: {
-            name: 'a.k.a. simple type',
+            name: "a.k.a. simple type",
             info: `
                 ⊹ basic - 20usd<br>
                 ⊹ pair - 35usd<br>
                 ⊹ deadline - 48 hours<br>
                 ⊹ slots - ✧✧
             `,
-            link: '⭢ more of examples of this type'
+            link: "⭢ more of examples of this type"
         },
 
         type2: {
-            name: 'a.k.a. character illustration',
+            name: "a.k.a. character illustration",
             info: `
                 ⊹ headshots to upper body - 27usd<br>
                 ⊹ half body - 55usd<br>
@@ -137,24 +96,24 @@ const translations = {
                 ⊹ deadline - 7 days<br>
                 ⊹ slots - ✧✧✧
             `,
-            link: '⭢ more of examples of this type'
+            link: "⭢ more of examples of this type"
         }
     },
 
     kor: {
         type1: {
-            name: 'a.k.a. 심플 타입',
+            name: "a.k.a. 심플 타입",
             info: `
                 ⊹ 기본 - 30,000원<br>
                 ⊹ 페어 - 50,000원<br>
                 ⊹ 마감기한 - 48시간<br>
                 ⊹ 슬롯 - ✧✧
             `,
-            link: '⭢ 해당 타입의 예시 더 보기'
+            link: "⭢ 해당 타입의 예시 더 보기"
         },
 
         type2: {
-            name: 'a.k.a. 캐릭터 타입',
+            name: "a.k.a. 캐릭터 타입",
             info: `
                 ⊹ 두상~흉상 - 40,000원<br>
                 ⊹ 반신 - 80,000원<br>
@@ -162,27 +121,37 @@ const translations = {
                 ⊹ 마감기한 - 7일<br>
                 ⊹ 슬롯 - ✧✧✧
             `,
-            link: '⭢ 해당 타입의 예시 더 보기'
+            link: "⭢ 해당 타입의 예시 더 보기"
         }
     }
-
 };
 
-
 function changeLanguage(language) {
+    const languageData = translations[language];
 
-    for (const type in translations[language]) {
+    for (const type in languageData) {
+        const data = languageData[type];
 
-        const data = translations[language][type];
-
-        document.querySelector(`[data-lang="${type}-name"]`).innerHTML =
-            data.name;
-
-        document.querySelector(`[data-lang="${type}-info"]`).innerHTML =
-            data.info;
-
-        document.querySelector(`[data-lang="${type}-link"]`).innerHTML =
-            data.link;
+        document.querySelector(`[data-lang="${type}-name"]`).textContent = data.name;
+        document.querySelector(`[data-lang="${type}-info"]`).innerHTML = data.info;
+        document.querySelector(`[data-lang="${type}-link"]`).textContent = data.link;
     }
-
 }
+
+/* =========================
+빠른 메뉴
+========================= */
+
+const menuLinks = document.querySelectorAll(".box-shortcut a");
+
+menuLinks.forEach(link => {
+    link.addEventListener("click", event => {
+        event.preventDefault();
+
+        const target = document.querySelector(link.getAttribute("href"));
+
+        target.scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+});
