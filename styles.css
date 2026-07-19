@@ -2,6 +2,7 @@ body {
     background: content-box radial-gradient(rgb(94, 94, 94), rgb(17, 17, 17));
 margin-top: 100px;
 margin-bottom: 100px;
+  color: white;
 }
 
 html {

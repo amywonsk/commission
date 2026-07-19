@@ -18,24 +18,24 @@
         <li><a href="#main">main</a></li>
         <li><a href="#commission">commission</a></li>
         <li><a href="#about me">about me</a></li>
-       
+
       </ul>
 
 
     </div>
 
-    <p id="video">
-      <video class="img" src="Milonga del Angel.mp4" controls></video>
-    </p>
+
 
     <div class="profile">
       <p>
         <span style="color: aliceblue;"> info</span><br>
         <span style="color: rgb(189, 189, 189);">emali ⊹ P00FR22@gmail.com</span><br>
-        <a href="https://x.com/tvjordyj_znak" target="_blank">⭢𝕏</a></br>
+        <a href="https://x.com/boom6500" target="_blank">⭢𝕏</a></br>
+        <span style="color: rgb(189, 189, 189);"> (i've changed my x user in 2026 july)</span><br>
+
         <a href="https://t.me/boom650" target="_blank">⭢telegram</a></br>
         <a href="https://t.me/+r_dxw3ZA0IgzYmQ9 " target="_blank">⭢telegram channnel</a></br>
-          </p>
+      </p>
 
     </div>
 
@@ -43,11 +43,11 @@
       <a href="#main">
         <h2 id="main">✦ main</h2>
       </a>
-      
+
       <details>
         <summary><span style="color: rgb(189, 189, 189);">announcement</span></summary>
         <span style="color: rgb(189, 189, 189);">
-        <p>july commission has opened</p>
+          <p>july commission has opened</p>
         </span>
       </details>
       <details>
@@ -61,51 +61,90 @@
       <a href="#commission">
         <h2 id="commission">✦ commission</h2>
       </a>
-       <img class="img" src="1.jpg" alt="" loading="lazy" onclick="openModal(this)">
+
+      <img class="img" src="1.jpg" alt="" loading="lazy" onclick="openModal(this)">
+
+      <!-- 언어 전환 버튼 -->
+      <button onclick="changeLanguage('eng')">eng</button>
+      ⊹
+      <button onclick="changeLanguage('kor')">kor</button>
+
+      <!-- 타입 1 -->
       <details>
-        <summary><span style="color: rgb(189, 189, 189);">type 1</span></summary>
+        <summary>
+          <span style="color: rgb(189, 189, 189);">
+            <span data-lang="type1-title">type 1</span>
+          </span>
+        </summary>
+
         <span style="color: rgb(189, 189, 189);">
-          <p> a.k.a. simple type</p>
-           <p>⊹ basic - 30usd<br>
-            ⊹ pair - 50usd<br>
+          <p data-lang="type1-name">
+            a.k.a. simple type
+          </p>
+
+          <p data-lang="type1-info">
+            ⊹ basic - 20usd<br>
+            ⊹ pair - 35usd<br>
             ⊹ deadline - 48 hours<br>
             ⊹ slots - ✧✧
-           </p>
-          <a href="type1.html" target="_blank">⭢more of examples of this type</a></br>
-      
+          </p>
+
+          <a href="type1.html" target="_blank" data-lang="type1-link">
+            ⭢ more of examples of this type
+          </a>
         </span>
-        </details>
-        <br>
-       <img class="img" src="2.jpg" alt="" loading="lazy" onclick="openModal(this)">
+      </details>
+
+      <br>
+      <img class="img" src="2.jpg" alt="" loading="lazy" onclick="openModal(this)">
+
+      <!-- TYPE 2 -->
       <details>
-        <summary><span style="color: rgb(189, 189, 189);">type 2</span></summary>
+        <summary>
+          <span style="color: rgb(189, 189, 189);">
+            <span data-lang="type2-title">type 2</span>
+          </span>
+        </summary>
+
         <span style="color: rgb(189, 189, 189);">
-          <p> a.k.a. character illustration</p>
-           <p>⊹ headshots to upper body - 30usd<br>
-            ⊹ half body - 70usd<br>
-            ⊹ full body - 80usd<br>
+          <p data-lang="type2-name">
+            a.k.a. character illustration
+          </p>
+
+          <p data-lang="type2-info">
+            ⊹ headshots to upper body - 27usd<br>
+            ⊹ half body - 55usd<br>
+            ⊹ full body - 70usd<br>
             ⊹ deadline - 7 days<br>
             ⊹ slots - ✧✧✧
-           </p>
-           <a href="type2.html" target="_blank">⭢more of examples of this type</a></br>
+          </p>
+
+          <a href="type2.html" target="_blank" data-lang="type2-link">
+            ⭢ more of examples of this type
+          </a>
         </span>
-        
       </details>
-<br>
+
+
+
+
+      <br>
       <a href="#about me">
         <h2 id="about me">✦ about me</h2>
       </a>
-      
+
       <details>
         <summary><span style="color: rgb(189, 189, 189);">.</span></summary>
         <span style="color: rgb(189, 189, 189);">
           <p> ive tried to be famous and hope to make some money with my art, but i haven't succeeded yet.
-           ive tried many things, since 2021, and im still trying my best to be famous. its not the first time that i made a website, i have done many projects.(its lost tho) i hope you like my art and support me. thank you for your time and attention.
-        </p>
+            ive tried many things, since 2021, and im still trying my best to be famous. its not the first time that i
+            made a website, i have done many projects.(its lost tho) i hope you like my art and support me. thank you
+            for your time and attention.
+          </p>
         </span>
       </details>
 
-     
+
 
       <div class="slider" id="slider1">
         <div class="slides">
@@ -122,9 +161,10 @@
         <div id="caption"> </div>
       </div>
 
-      <script src="script.js"></script>
+
     </div>
   </div>
+  <script src="script.js"></script>
 </body>
 
 </html>
