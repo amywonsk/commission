@@ -1,3 +1,6 @@
+
+
+
 /* =========================
 모달
 ========================= */
@@ -142,7 +145,7 @@ function changeLanguage(language) {
 빠른 메뉴
 ========================= */
 
-const menuLinks = document.querySelectorAll(".box-shortcut a");
+const menuLinks = document.querySelectorAll('.box-shortcut a[href^="#"]');
 
 menuLinks.forEach(link => {
     link.addEventListener("click", event => {
@@ -150,8 +153,10 @@ menuLinks.forEach(link => {
 
         const target = document.querySelector(link.getAttribute("href"));
 
-        target.scrollIntoView({
-            behavior: "smooth"
-        });
+        if (target) {
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
     });
 });
