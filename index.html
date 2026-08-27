@@ -49,12 +49,7 @@
       <!-- COMMISSION -->
       <section id="commission">
         <h2>✦ commission</h2>
-        <!-- 언어 전환 버튼 -->
-        <div class="language-buttons">
-          <button onclick="changeLanguage('eng')">eng</button>
-          <span>⊹</span>
-          <button onclick="changeLanguage('kor')">kor</button>
-        </div>
+
         <!-- 이미지 슬라이더-->
         <div class="slider" id="slider1">
           <div class="slides">
@@ -72,9 +67,36 @@
         <p>
           급전커미션<br>
           ⊹ 슬롯 - ✧✧<br>
-          ⊹ 작업 수 - 1
+          ⊹ 작업 수 - 2
         </p>
+        <!-- 언어 전환 버튼 -->
+        <div class="language-buttons">
+          <button onclick="changeLanguage('eng')">eng</button>
+          <span>⊹</span>
+          <button onclick="changeLanguage('kor')">kor</button>
+        </div>
 
+        <!-- 이미지 슬라이더-->
+        <div class="slider" id="slider2">
+          <div class="slides">
+            <video class="img" src="shime/2026-08-23 02-04-20.mp4" autoplay loop muted playsinline></video>
+
+            <img class="img" src="shime/shimeji_info.jpg" alt="" loading="lazy" onclick="openModal(this)">
+            <img class="img" src="shime/shimeji_examples.jpg" alt="" loading="lazy" onclick="openModal(this)">
+
+          </div>
+
+          <button class="prev" onclick="moveSlides(-1, 'slider2')">❮</button>
+          <button class="next" onclick="moveSlides(1, 'slider2')">❯</button>
+        </div>
+
+        <h3>shimeji commission</h3>
+        <p>
+          planning to discout<br>
+          <a href="type3.html" target="_blank" data-lang="type3-link">
+            ⭢ see more
+          </a>
+        </p>
         <!-- TYPE 1 이미지 -->
         <img src="1.jpg" alt="" class="img" loading="lazy" onclick="openModal(this)">
 
