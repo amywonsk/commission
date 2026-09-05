@@ -295,18 +295,7 @@ summary {
     outline: 2px solid white;
 }
 
-.smg {
-    display: block;
-    height: 100%;
-    margin: 20px auto;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: opacity 0.3s;
-}
 
-.smg:hover {
-    opacity: 0.8;
-}
 .gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -320,6 +309,10 @@ summary {
 .item img {
     width: 100%;
     display: block;
+}
+
+.item img:hover {
+    opacity: 0.8;
 }
 
 .item p {
