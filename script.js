@@ -80,24 +80,28 @@ function moveSlides(amount, sliderId) {
 const translations = {
     eng: {
         type1: {
+            name: "a.k.a. character illustration",
+            info: `
+                ⊹ headshots to upper body - 22usd<br>
+                ⊹ half body to full body - 33usd<br>
+                 ⊹ background - 7usd<br>
+                  <br>
+                ⊹ deadline - 7 days<br>
+                ⊹ slots - ✧✧✧<br>
+                ⊹⊹ Note: The quality may not be very high, and it may not be exactly the same as the sample. Please refer to the examples below.<br>
+            `,
+            link1: "⭢ more of examples of this type",
+            link2: "⭢ commission form (kor)",
+            link3: "⭢ commission form (eng)"
+        },
+
+        type2: {
             name: "a.k.a. simple type",
             info: `
                 ⊹ basic - 20usd<br>
                 ⊹ pair - 35usd<br>
                 ⊹ deadline - 48 hours<br>
-                ⊹ slots - ✧✧
-            `,
-            link: "⭢ more of examples of this type"
-        },
-
-        type2: {
-            name: "a.k.a. character illustration",
-            info: `
-                ⊹ headshots to upper body - 27usd<br>
-                ⊹ half body - 55usd<br>
-                ⊹ full body - 70usd<br>
-                ⊹ deadline - 7 days<br>
-                ⊹ slots - ✧✧✧
+                ⊹ slots - currently closed
             `,
             link: "⭢ more of examples of this type"
         }
@@ -105,24 +109,27 @@ const translations = {
 
     kor: {
         type1: {
+            name: "a.k.a. 캐릭터 타입",
+            info: `
+                ⊹ 두상~흉상 - 30,000원<br>
+                ⊹ 반신~전신 - 40,000원<br>
+                ⊹ 배경 - 10,000원<br>
+                <br>
+                ⊹ 마감기한 - 7일<br>
+                ⊹ 슬롯 - ✧✧✧<br>
+                ⊹⊹ 주의사항: 퀄리티 그렇게 높지 않음, 샘플하고 완전 동일 x 아래 참고 해 주세요<br>
+            `,
+            link1: "⭢ 해당 타입의 예시 더 보기",
+            link2: "⭢ 커미션 신청서 (kor)",
+            link3: "⭢ 커미션 신청서 (eng)"
+        },
+        type2: {
             name: "a.k.a. 심플 타입",
             info: `
                 ⊹ 기본 - 30,000원<br>
                 ⊹ 페어 - 50,000원<br>
                 ⊹ 마감기한 - 48시간<br>
-                ⊹ 슬롯 - ✧✧
-            `,
-            link: "⭢ 해당 타입의 예시 더 보기"
-        },
-
-        type2: {
-            name: "a.k.a. 캐릭터 타입",
-            info: `
-                ⊹ 두상~흉상 - 40,000원<br>
-                ⊹ 반신 - 80,000원<br>
-                ⊹ 전신 - 100,000원<br>
-                ⊹ 마감기한 - 7일<br>
-                ⊹ 슬롯 - ✧✧✧
+                ⊹ 슬롯 - 현재 마감
             `,
             link: "⭢ 해당 타입의 예시 더 보기"
         }
@@ -135,11 +142,22 @@ function changeLanguage(language) {
     for (const type in languageData) {
         const data = languageData[type];
 
-        document.querySelector(`[data-lang="${type}-name"]`).textContent = data.name;
-        document.querySelector(`[data-lang="${type}-info"]`).innerHTML = data.info;
-        document.querySelector(`[data-lang="${type}-link"]`).textContent = data.link;
+        for (const key in data) {
+            const element = document.querySelector(
+                `[data-lang="${type}-${key}"]`
+            );
+
+            if (!element) continue;
+
+            if (key === "info") {
+                element.innerHTML = data[key];
+            } else {
+                element.textContent = data[key];
+            }
+        }
     }
 }
+
 
 /* =========================
 빠른 메뉴
